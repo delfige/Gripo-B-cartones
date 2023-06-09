@@ -12,6 +12,7 @@
                 {% set numeros = carton['Cartones'] %}
                 {% set filas = numeros.split(' ')|batch(9) %}
                 <div>
+                    <p>CARTON: {{ carton['ID'] }}</p>
                     {% for fila in filas %}
                         <p> {{ fila|join(' ') }}</p>
                     {% endfor %}
