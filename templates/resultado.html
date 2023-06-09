@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resultado</title>
+  </head>
+  <body>
+    <h1>Resultado</h1>
+    <p>Cantidad de cartones generados: {{ cantidad }}</p>
+    <ul>
+      {% for carton in cartones %}
+        <li>{{ carton }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
