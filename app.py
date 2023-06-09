@@ -20,5 +20,5 @@ def generar_cartones():
     return render_template('resultado.html', cartones=cartones_cargados)
 
 
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    app.run(debug=True)

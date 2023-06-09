@@ -7,9 +7,16 @@
     <h1>Resultado</h1>
     <p>Cantidad de cartones generados: {{ cantidad }}</p>
     <ul>
-      {% for carton in cartones %}
-        <li>{{ carton }}</li>
-      {% endfor %}
+        {% for carton in cartones %}
+            <li>
+                {% set numeros = carton['Cartones'] %}
+                {% set filas = numeros.split(' ')|batch(9) %}
+                <div>
+                    {% for fila in filas %}
+                        <p> {{ fila|join(' ') }}</p>
+                    {% endfor %}
+                </div>
+            </li>
+        {% endfor %}
     </ul>
-  </body>
-</html>
+</body>
