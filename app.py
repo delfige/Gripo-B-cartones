@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,random,math
+from flask import Flask, render_template, request
 from loteria import generar_cartones_sin_repetir, guardar_cartones_en_csv,cargar_cartones
 
 
