@@ -222,7 +222,7 @@ def guardar_cartones_en_csv(cartones, cantidad_cartones, nombre_archivo):
         escritor_csv.writerow(['ID', 'Cartones'])
         for i in range(cantidad_cartones):
             carton = cartones[i]
-            carton_id = i
+            carton_id = i+1
             carton_l = []
             for fila in carton:
                 for numero in fila:

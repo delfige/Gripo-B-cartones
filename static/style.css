@@ -1,0 +1,72 @@
+
+
+body{
+    background-image: url(./assets/wallpaperflare.com_wallpaper.jpg);
+
+}
+
+tr{
+    color: black;
+}
+.carton {
+    font-size: 35px;
+    padding: 30px;
+    align-content: center; 
+    background-color: aliceblue;
+    width: fit-content;
+    align-content: baseline;
+    margin-left: 33.3%;
+}
+    
+
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 3px;
+    grid-row-gap: 17px;
+    }
+
+li{
+    list-style: none;
+    
+}
+.carton-title {
+    font-weight: bold; 
+    font-size: 30px;
+    
+   
+}
+
+
+
+.numero {
+    padding: 0px;
+    border: 4px solid black;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    background-color: aliceblue;
+  }
+  .pagination {
+    margin-top: 10px;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #eee;
+    color: #333;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #ccc;
+}
+
+.pagination .active {
+    background-color: #333;
+    color: #fff;
+}

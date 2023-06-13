@@ -2,22 +2,54 @@
 <html>
   <head>
     <title>Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  
   <body>
     <h1>Resultado</h1>
     <p>Cantidad de cartones generados: {{ cantidad }}</p>
-    <ul>
-        {% for carton in cartones %}
-            <li>
-                {% set numeros = carton['Cartones'] %}
-                {% set filas = numeros.split(' ')|batch(9) %}
-                <div>
-                    <p>CARTON: {{ carton['ID'] }}</p>
-                    {% for fila in filas %}
-                        <p> {{ fila|join(' ') }}</p>
-                    {% endfor %}
-                </div>
-            </li>
-        {% endfor %}
+    <ul class="parent" >
+      {% for carton in cartones %}
+      <li >
+        <p class="carton-title">CARTON: {{ carton['ID'] }}</p>
+        <div class="carton">
+          
+          {% set numeros = carton['Cartones'] %}
+          {% set filas = numeros.split(' ')|batch(9) %}
+          <table class="tabla" >
+            {% for fila in filas %}
+            <tr>
+              {% for numero in fila %}
+              <td class="numero">{{ numero }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </li>
+      {% endfor %}
     </ul>
-</body>
+
+    <<div class="pagination">
+  {% if pagina > 1 %}
+    <a href="{{ url_for('mostrar_cartones', pagina=pagina-1) }}">&lt;</a>
+  {% endif %}
+
+  {% for page in range(1,total_paginas+1) %}
+    {% if page == pagina %}
+      <span class="current-page">{{ page }}</span>
+    {% else %}
+      <a href="{{ url_for('mostrar_cartones', pagina=page) }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if pagina <total_paginas %}
+    <a href="{{ url_for('mostrar_cartones', pagina=pagina+1) }}">&gt;</a>
+  {% endif %}
+</div>
+
+  </body>
+  
